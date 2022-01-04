@@ -21,6 +21,7 @@ import functools
 import itertools
 import math
 import random
+import os
 
 import discord
 import youtube_dl
@@ -510,12 +511,13 @@ class Music(commands.Cog):
                 raise commands.CommandError('Bot is already in a voice channel.')
 
 
-bot = commands.Bot('music.', description='Yet another music bot.')
+bot = commands.Bot('-', description='List of commands. Use prefix "-"')
 bot.add_cog(Music(bot))
 
 
 @bot.event
 async def on_ready():
     print('Logged in as:\n{0.user.name}\n{0.user.id}'.format(bot))
+    await bot.change_presence(activity=discord.Activity(type = discord.ActivityType.listening, name='-play'))
 
-bot.run('Token')
+bot.run(os.getenv("TOKEN"))

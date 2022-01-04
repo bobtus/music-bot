@@ -10,8 +10,6 @@ Adapted from this [gist](https://gist.github.com/vbe0201/ade9b80f2d3b64643d85493
 
 ### Setup for Ubuntu 18.04
 
-Paste discord bot token into .env file
-
 ```
 sudo apt-get install build-essential unzip -y
 sudo apt-get install software-properties-common -y
@@ -21,6 +19,15 @@ cd ~/music-bot
 sudo python3 -m pip install -U pip
 sudo python3 -m pip install -U discord.py pynacl youtube-dl
 ```
+
+Paste discord bot token into .env file
+```
+nano .env
+```
+
+Press Ctrl+X to exit
+
+Type Y and Press Enter to save
 
 Run uning:
 ```

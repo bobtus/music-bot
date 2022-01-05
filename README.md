@@ -11,25 +11,24 @@ Adapted from this [gist](https://gist.github.com/vbe0201/ade9b80f2d3b64643d85493
 ### Setup for Ubuntu 18.04
 
 ```
-sudo apt-get install build-essential unzip -y
-sudo apt-get install software-properties-common -y
-sudo apt-get install git ffmpeg libopus-dev libffi-dev libsodium-dev python3-pip
-git clone https://github.com/bobtus/music-bot ~/music-bot -b master
+sudo apt update
+sudo apt install git ffmpeg python3-pip
+git clone https://github.com/bobtus/music-bot ~/music-bot
 cd ~/music-bot
-sudo python3 -m pip install -U pip
-sudo python3 -m pip install -U discord.py pynacl youtube-dl
+pip3 install -U discord.py pynacl youtube-dl
 ```
 
-Paste discord bot token into .env file
+Paste Discord Bot Token inside main.py
 ```
-nano .env
+nano main.py
 ```
+Press down to get to the last line and replace token with your discord token. `bot.run('token')`
 
 Press Ctrl+X to exit
 
-Type Y and Press Enter to save
+Type y and Press Enter to save
 
-Run uning:
+Run using:
 ```
 python3 main.py
 ```

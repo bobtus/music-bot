@@ -501,7 +501,11 @@ class Music(commands.Cog):
 
                 await ctx.voice_state.songs.put(song)
                 await ctx.send('Enqueued {}'.format(str(source)))
-
+                
+    @commands.command(name='ping')
+    async def _ping(self, ctx: commands.context):
+        await ctx.message.reply("Pong!\n Latency: {}ms".format(int(round(self.bot.latency*100))))
+        
     @_join.before_invoke
     @_play.before_invoke
     async def ensure_voice_state(self, ctx: commands.Context):

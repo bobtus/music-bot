@@ -333,7 +333,7 @@ class Music(commands.Cog):
 
         ctx.voice_state.voice = await destination.connect()
 
-    @commands.command(name='leave', aliases=['disconnect'])
+    @commands.command(name='leave', aliases=['disconnect', 'fuckoff', 'fu', 'dc'])
     #@commands.has_permissions(manage_guild=True)
     async def _leave(self, ctx: commands.Context):
         """Clears the queue and leaves the voice channel."""
@@ -381,7 +381,7 @@ class Music(commands.Cog):
             ctx.voice_state.voice.resume()
             await ctx.message.add_reaction('⏯')
 
-    @commands.command(name='stop')
+    @commands.command(name='stop', aliases=['clear'])
     #@commands.has_permissions(manage_guild=True)
     async def _stop(self, ctx: commands.Context):
         """Stops playing song and clears the queue."""
@@ -392,7 +392,7 @@ class Music(commands.Cog):
             ctx.voice_state.voice.stop()
             await ctx.message.add_reaction('⏹')
 
-    @commands.command(name='skip')
+    @commands.command(name='skip', aliases=['next'])
     async def _skip(self, ctx: commands.Context):
         """Vote to skip a song. The requester can automatically skip.
         3 skip votes are needed for the song to be skipped.
@@ -419,7 +419,7 @@ class Music(commands.Cog):
         else:
             await ctx.send('You have already voted to skip this song.')
 
-    @commands.command(name='queue')
+    @commands.command(name='queue', aliases=['q'])
     async def _queue(self, ctx: commands.Context, *, page: int = 1):
         """Shows the player's queue.
 
@@ -443,7 +443,7 @@ class Music(commands.Cog):
                  .set_footer(text='Viewing page {}/{}'.format(page, pages)))
         await ctx.send(embed=embed)
 
-    @commands.command(name='shuffle')
+    @commands.command(name='shuffle', aliases=['mix'])
     async def _shuffle(self, ctx: commands.Context):
         """Shuffles the queue."""
 
@@ -463,7 +463,7 @@ class Music(commands.Cog):
         ctx.voice_state.songs.remove(index - 1)
         await ctx.message.add_reaction('✅')
 
-    @commands.command(name='loop')
+    @commands.command(name='loop', aliases=['l'])
     async def _loop(self, ctx: commands.Context):
         """Loops the currently playing song.
 

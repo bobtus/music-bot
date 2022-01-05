@@ -22,7 +22,7 @@ Paste Discord Bot Token inside main.py
 ```
 nano main.py
 ```
-Press down to get to the last line and replace token with your discord token. `bot.run('token')`
+Press down to get to the last line and replace token with your discord bot token. `bot.run('token')`
 
 Press Ctrl+X to exit
 

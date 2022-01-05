@@ -200,6 +200,7 @@ class VoiceState:
         self.voice = None
         self.next = asyncio.Event()
         self.songs = SongQueue()
+        self.exists = True
 
         self._loop = False
         self._volume = 0.5
@@ -244,6 +245,7 @@ class VoiceState:
                         self.current = await self.songs.get()
                 except asyncio.TimeoutError:
                     self.bot.loop.create_task(self.stop())
+                    self.exists = True
                     return
 
             self.current.source.volume = self._volume
@@ -270,6 +272,7 @@ class VoiceState:
         if self.voice:
             await self.voice.disconnect()
             self.voice = None
+            self.exists = False
 
 
 class Music(commands.Cog):
@@ -279,7 +282,7 @@ class Music(commands.Cog):
 
     def get_voice_state(self, ctx: commands.Context):
         state = self.voice_states.get(ctx.guild.id)
-        if not state:
+        if not self.exists = False:
             state = VoiceState(self.bot, ctx)
             self.voice_states[ctx.guild.id] = state
 

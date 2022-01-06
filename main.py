@@ -249,10 +249,11 @@ class VoiceState:
                     self.exists = False
                     return
 
-            self.current.source.volume = self._volume
-            self.voice.play(self.current.source, after=self.play_next_song)
-            await self.current.source.channel.send(embed=self.current.create_embed())
+                self.current.source.volume = self._volume
+                self.voice.play(self.current.source, after=self.play_next_song)
+                await self.current.source.channel.send(embed=self.current.create_embed())
             
+            #If the song is looped
             elif self.loop == True:
                 self.now = discord.FFmpegPCMAudio(self.current.source.stream_url, **YTDLSource.FFMPEG_OPTIONS)
                 self.voice.play(self.now, after=self.play_next_song)
@@ -509,7 +510,13 @@ class Music(commands.Cog):
                 
     @commands.command(name='ping')
     async def _ping(self, ctx: commands.context):
-        await ctx.message.reply("Pong!\n Latency: {}ms".format(int(round(self.bot.latency*100))))
+        """Pong!
+        
+        See bot latency.
+        """
+
+        await ctx.message.reply("Pong!\nLatency: {} ms".format(int(round(self.bot.latency*100))))
+        
         
     @_join.before_invoke
     @_play.before_invoke
@@ -520,7 +527,6 @@ class Music(commands.Cog):
         if ctx.voice_client:
             if ctx.voice_client.channel != ctx.author.voice.channel:
                 raise commands.CommandError('Bot is already in a voice channel.')
-
 
 bot = commands.Bot('-', description='List of commands. Use prefix "-"')
 bot.add_cog(Music(bot))

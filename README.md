@@ -18,11 +18,10 @@ cd ~/music-bot
 pip3 install -U discord.py pynacl youtube-dl
 ```
 
-Paste Discord Bot Token inside main.py
+Paste Discord Bot Token inside token.txt
 ```
-nano main.py
+nano token.txt
 ```
-Press down to get to the last line and replace token with your discord bot token. `bot.run('token')`
 
 Press Ctrl+X to exit
 

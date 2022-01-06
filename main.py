@@ -537,4 +537,5 @@ async def on_ready():
     print('Logged in as:\n{0.user.name}\n{0.user.id}'.format(bot))
     await bot.change_presence(activity=discord.Activity(type = discord.ActivityType.listening, name='-play'))
 
-bot.run('token')
+token = open("token.txt", "r").read()
+bot.run(token)

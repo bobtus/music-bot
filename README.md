@@ -5,9 +5,8 @@ Adapted from this [gist](https://gist.github.com/vbe0201/ade9b80f2d3b64643d85493
 Fixed:
 
 - loop not working
-
+- volume not working
 - play only adding to queue and not playing
-
 - added ping command
 
 ### Requirements

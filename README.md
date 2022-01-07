@@ -10,7 +10,8 @@ Fixed:
 - added ping command
 
 Known issues:
-- long songs glitches the bot
+- long/live songs glitcing the bot
+- The Future of discord.py See: [gist](https://gist.github.com/Rapptz/4a2f62751b9600a31a0d3c78100287f1)
 
 ### Requirements
 

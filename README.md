@@ -9,6 +9,9 @@ Fixed:
 - play only adding to queue and not playing (still happens sometimes)
 - added ping command
 
+Known issues:
+- long songs glitches the bot
+
 ### Requirements
 
 1. Server to run on

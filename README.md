@@ -6,7 +6,7 @@ Fixed:
 
 - loop not working
 - volume not working
-- play only adding to queue and not playing
+- play only adding to queue and not playing (still happens sometimes)
 - added ping command
 
 ### Requirements
